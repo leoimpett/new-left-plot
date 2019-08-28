@@ -1,5 +1,5 @@
 # New Left Plot
-### Leo Impett
+by Leo Impett
 
 
 Some basic plotting to visualize the images which have accompanied articles in the New Left Review (since its relaunch). Visualisations made in Python with Plotly. 
