@@ -6,12 +6,11 @@ Some basic plotting to visualize the images which have accompanied articles in t
 
 There are two versions of the visualization - each is useful in different ways:
 
-## With images
-Quite slow, but with tiny thumbnail previews of the images themselves. Also includes links to the original images (on the NLR website); hover over the centre of a datapoint to get the clickable link to its original. 
-[view page](thumbs.html)
-
-## Without images
+## [Without images](points.html)
 No images, no links - just the x-y dots. Very fast. 
-[view page](points.html)
 
+## [With images](thumbs.html)
+Quite slow, but with tiny thumbnail previews of the images themselves. Also includes links to the original images (on the NLR website); hover over the centre of a datapoint to get the clickable link to its original. 
+
+Both are selectable by author. The author is inferred automatically from the article URL (only the first author is taken). 
 
