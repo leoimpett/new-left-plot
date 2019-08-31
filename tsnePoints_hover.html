@@ -5,7 +5,7 @@
 
     
     $(document).ready(function(){console.log('ready');
-                                $("#box").load("https://leoimpett.github.io/new-left-plot/tsnePoints.html", 'f' + (Math.random()*1000000), graphloaded);
+                                $("#box").load("https://leoimpett.github.io/new-left-plot/tsnePoints", 'f' + (Math.random()*1000000), graphloaded);
                                  
 //                                 console.log(   $("#box").find("div").html())
                                  
@@ -13,22 +13,29 @@
 
 var graphloaded = function(){
  // The node to be monitored
-var target = $("#box").find(".hoverlayer");
+//var target = $("#box").find(".hoverlayer");
 
 // Create an observer instance
 var observer = new MutationObserver(function( mutations ) {
 var imurl = " "
+var articleurl = " "
   mutations.forEach(function( mutation ) {
     var newNodes = mutation.addedNodes; // DOM NodeList
     if( newNodes !== null ) { // If there are new nodes added
     	var $nodes = $( newNodes ); // jQuery set
     	$nodes.each(function() {
     		var $node = $( this );
-            if (this.innerHTML.includes('imurls=')){
-               imurl = this.innerHTML.split('imurls=')[1].split('"')[0];
+            if (this.innerHTML.includes('<image>')){
+               imurl = this.innerHTML.split('<image>')[1].split('</image>')[0];
                 $("#preview").css('background-image', 'url(' + imurl + ')');
                 $("#imageref").attr('href',imurl)
+               articleurl = this.innerHTML.split('<article>')[1].split('</article>')[0];
+                $("#preview").css('background-image', 'url(' + imurl + ')');
+                $("#articleref").attr('href',articleurl)
             }
+
+            
+            
 
             
     	});
@@ -60,6 +67,13 @@ observer.observe($("#box").find(".hoverlayer").get()[0],config)
     
 </script>
 
+<style>
+    .hovertext text tspan a{
+        display:none;
+        font-family: monospace !important;
+    }
+</style>
+
 <body>
 
     
@@ -67,8 +81,9 @@ observer.observe($("#box").find(".hoverlayer").get()[0],config)
 <div id="box"> </div>
 
     <div id="draggable" style="position:absolute; left:40vw; top:60vh; display:inline-block; text-align: center;background-color:rgba(255,255,255,0.5); padding:5px;" >
-        <div id="preview" style="display:block;height:200px;width:200px;z-index: 3;background-size: contain;background-repeat: no-repeat;" > </div>
-<a id="imageref" style="display:block;color:black;font-family: monospace" href="#" target="_blank">src</a>
+        <div id="preview" style="background-position: center; height:200px;width:200px;z-index: 3;background-size: contain;background-repeat: no-repeat;" > </div><br>
+<a id="imageref" style="display:inline-block;color:black;font-family: monospace" href="#" target="_blank">image</a>
+<a id="articleref" style="display:inline-block;color:black;font-family: monospace" href="#" target="_blank">article</a>
     
         </div>
 </body>
