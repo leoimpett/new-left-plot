@@ -6,11 +6,19 @@ Some basic plotting to visualize the images which have accompanied articles in t
 
 There are two versions of the visualization - each is useful in different ways:
 
-## [Without images](points.html)
-No images, no links - just the x-y dots. Very fast. 
+# Entropy vs. Volume Number
 
-## [With images](thumbs.html)
+## [Fast Version](entropy_hover.html)
+No images - just the x-y dots. Shows the image, and link to original image and source article, on hover. Very fast (if your internet connection is too). 
+
+## [Slow Version](thumbs.html)
 Quite slow, but with tiny thumbnail previews of the images themselves. Also includes links to the original images (on the NLR website); hover over the centre of a datapoint to get the clickable link to its original. 
 
-Both are selectable by author. The author is inferred automatically from the article URL (only the first author is taken). 
+# 'Image Similarity' (neural network features reduced to 2 dimensions by T-SNE)
+
+## [Fast Version](tsnePoints_hover.html)
+
+## [Slow Version](tsne.html)
+
+All charts are selectable by author. The author is inferred automatically from the article URL (only the first author is taken). 
 
